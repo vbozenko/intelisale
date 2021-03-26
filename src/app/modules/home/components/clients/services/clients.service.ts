@@ -10,9 +10,11 @@ import {shareReplay} from 'rxjs/operators';
 })
 export class ClientsService {
 
+  /* CONSTRUCTOR */
   constructor(private http: HttpClient) {
   }
 
+  /* LOAD ALL CLIENTS */
   public loadAllClients(): Observable<Client[]> {
     return this.http.get<Client[]>(`${environment.server}/api/clients`)
       .pipe(
@@ -20,6 +22,7 @@ export class ClientsService {
       );
   }
 
+  /* SAVE CLIENT */
   public saveClient(clientId: number, changes: Partial<Client>): Observable<any> {
     return this.http.put<any>(`${environment.server}/api/clients/${clientId}`, changes)
       .pipe(

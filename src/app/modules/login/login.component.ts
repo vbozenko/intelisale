@@ -10,25 +10,26 @@ import {AuthService} from '../../core/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  /* Member variables */
+  /* ATTRIBUTES */
   public form: FormGroup;
 
-  /* Constructor */
+  /* CONSTRUCTOR */
   constructor(private fb: FormBuilder,
               private router: Router,
               private auth: AuthService) {
 
+    /* Form group */
     this.form = fb.group({
       email: ['test@testemail.com', [Validators.required]],
       password: ['test', [Validators.required]]
     });
   }
 
-  /* ngOnInit */
+  /* ON INIT */
   ngOnInit(): void {
   }
 
-  /* Login */
+  /* LOGIN */
   public login(): any {
     const val = this.form.value;
 
@@ -39,5 +40,4 @@ export class LoginComponent implements OnInit {
         },
         error => alert('Login failed'));
   }
-
 }

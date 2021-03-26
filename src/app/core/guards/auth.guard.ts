@@ -7,21 +7,24 @@ import {map} from 'rxjs/operators';
 @Injectable()
 export class AuthGuard implements CanActivate, CanActivateChild {
 
+  /* CONSTRUCTOR */
   constructor(private auth: AuthService,
               private router: Router) {
   }
 
+  /* CAN ACTIVATE ROUTE */
   canActivate(route: ActivatedRouteSnapshot,
               state: RouterStateSnapshot): Observable<boolean | UrlTree> {
     return this.checkIfAuthenticated();
   }
 
+  /* CAN ACTIVATE CHILD ROUTE */
   canActivateChild(childRoute: ActivatedRouteSnapshot,
                    state: RouterStateSnapshot): Observable<boolean | UrlTree> {
     return this.checkIfAuthenticated();
   }
 
-  /* Check if a user is authenticated */
+  /* CHECK USER AUTHENTICATION */
   private checkIfAuthenticated(): Observable<any> {
     return this.auth.isLoggedIn$
       .pipe(

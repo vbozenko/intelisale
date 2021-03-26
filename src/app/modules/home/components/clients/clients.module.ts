@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {ClientsComponent} from './clients.component';
 import {ClientsRoutingModule} from './clients-routing.module';
 import {AgGridModule} from 'ag-grid-angular';
+import {SharedModule} from '../../../../shared/shared.module';
 
 
 @NgModule({
@@ -10,6 +11,7 @@ import {AgGridModule} from 'ag-grid-angular';
   imports: [
     CommonModule,
     ClientsRoutingModule,
+    SharedModule,
     AgGridModule.withComponents([])
   ]
 })

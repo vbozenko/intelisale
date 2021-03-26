@@ -13,32 +13,34 @@ const API_URL = `${environment.server}/api`;
 })
 export class AuthService {
 
-  /* Member variables */
+  /* ATRIBUTES */
   private subject = new BehaviorSubject<User>(null);
-
   public user$: Observable<User> = this.subject.asObservable();
 
   public isLoggedIn$: Observable<boolean>;
   public isLoggedOut: Observable<boolean>;
 
-  /* Constructor */
+  /* CONSTRUCTOR */
   constructor(private http: HttpClient) {
 
+    /* Check if logged in */
     this.isLoggedIn$ = this.user$.pipe(
       map(userData => !!userData)
     );
 
+    /* Check if logged out */
     this.isLoggedOut = this.isLoggedIn$.pipe(
       map(loggedIn => !loggedIn)
     );
 
+    /* Save user to local storage */
     const user = localStorage.getItem(AUTH_DATA);
     if (user) {
       this.subject.next(JSON.parse(user));
     }
   }
 
-  /* Login */
+  /* LOGIN */
   public login(email: string, password: string): Observable<User> {
     return this.http.post<User>(API_URL + '/login', {email, password}).pipe(
       tap(user => {
@@ -49,7 +51,7 @@ export class AuthService {
     );
   }
 
-  /* Logout */
+  /* LOGOUT */
   public logout(): void {
     this.subject.next(null);
     localStorage.removeItem(AUTH_DATA);

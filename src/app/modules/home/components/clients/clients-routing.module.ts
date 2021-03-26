@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {ClientsComponent} from './clients.component';
 
+/* CLIENT ROUTES */
 const routes = [
   {
     path: '',

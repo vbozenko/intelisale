@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from './modules/login/login.component';
 import {PageNotFoundComponent} from './modules/page-not-found/page-not-found.component';
 
+/* APP ROUTES */
 const routes: Routes = [
   {
     path: '',

@@ -1,16 +1,27 @@
-<ag-grid-angular
-  style="width: 100%; height: 500px;"
-  id="clientsTable"
-  class="ag-theme-alpine"
-  [rowData]="clients$ | async"
-  [columnDefs]="columnDefs"
-  [defaultColDef]="defaultColDef"
-  [pagination]="true"
-  [paginationPageSize]="10"
-  [rowSelection]="'single'"
-  [singleClickEdit]="true"
-  [editType]="'fullRow'"
-  (rowEditingStopped)="onRowEditingStopped($event)"
-  (gridReady)="onGridReady($event)"
->
-</ag-grid-angular>
+<h1 class="mat-display-2 title-center">Clients Table</h1>
+
+
+<div class="wrapper">
+  <ag-grid-angular
+    style="width: 100%; height: 500px;"
+    id="clientsTable"
+    class="ag-theme-alpine"
+    [rowData]="clients$ | async"
+    [columnDefs]="columnDefs"
+    [defaultColDef]="defaultColDef"
+    [pagination]="true"
+    [paginationPageSize]="10"
+    [rowSelection]="'single'"
+    [singleClickEdit]="true"
+    [editType]="'fullRow'"
+    (rowEditingStopped)="onRowEditingStopped($event)"
+    (gridReady)="onGridReady($event)">
+  </ag-grid-angular>
+  <br>
+
+  <p><b>Usage instructions:</b>
+    <br>Use keyboard arrows to navigate cells.
+    <br>Press ENTER to edit a cell, or use the mouse button to select a cell to edit.
+    <br>While in editing mode, press TAB to navigate and edit the next cell.
+    <br>Current row data will be saved to the database in one of these cases: When the next row is reached, when the current row is deselected, or when exiting edit mode by pressing the ESC key.</p>
+</div>

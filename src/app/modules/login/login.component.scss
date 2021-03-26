@@ -1,6 +1,12 @@
 .login-page {
+  min-height: 100%;
+  background-color: linen;
+}
+
+.login-card {
+  top: 150px;
   max-width: 350px;
-  margin: 50px auto 0 auto;
+  margin: 0 auto 0 auto;
 }
 
 .login-form {
