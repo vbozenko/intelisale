@@ -10,9 +10,6 @@
               [routerLink]="['/home/clients']"
               routerLinkActive="menu-item-active">Clients</button>
       <button mat-menu-item
-              [routerLink]="['/home/about']"
-              routerLinkActive="menu-item-active">About</button>
-      <button mat-menu-item
               (click)="logout()"
               *ngIf="auth.isLoggedIn$ | async">Logout</button>
     </ng-template>
