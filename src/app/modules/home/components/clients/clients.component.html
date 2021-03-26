@@ -1,0 +1,16 @@
+<ag-grid-angular
+  style="width: 100%; height: 500px;"
+  id="clientsTable"
+  class="ag-theme-alpine"
+  [rowData]="clients$ | async"
+  [columnDefs]="columnDefs"
+  [defaultColDef]="defaultColDef"
+  [pagination]="true"
+  [paginationPageSize]="10"
+  [rowSelection]="'single'"
+  [singleClickEdit]="true"
+  [editType]="'fullRow'"
+  (rowEditingStopped)="onRowEditingStopped($event)"
+  (gridReady)="onGridReady($event)"
+>
+</ag-grid-angular>

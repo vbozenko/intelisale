@@ -1,0 +1,25 @@
+<!-- NAVIGATION TOOLBAR -->
+<mat-toolbar color="primary">
+
+  <!-- NAVIGATION MENU -->
+  <mat-menu #appMenu="matMenu">
+
+    <!-- NAVIGATION ITEMS -->
+    <ng-template matMenuContent>
+      <button mat-menu-item
+              [routerLink]="['/home/clients']"
+              routerLinkActive="menu-item-active">Clients</button>
+      <button mat-menu-item
+              [routerLink]="['/home/about']"
+              routerLinkActive="menu-item-active">About</button>
+      <button mat-menu-item
+              (click)="logout()"
+              *ngIf="auth.isLoggedIn$ | async">Logout</button>
+    </ng-template>
+  </mat-menu>
+
+  <!-- NAVIGATION BUTTON -->
+  <button mat-icon-button [matMenuTriggerFor]="appMenu">
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
