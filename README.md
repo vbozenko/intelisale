@@ -4,6 +4,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
+Run `npm install`
+
 1st terminal:
 Run `npm run server` for a fake db server. Navigate to `http://localhost:3000/` for more detail.
 
